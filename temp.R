@@ -58,7 +58,7 @@ lengthBased         <- rep(TRUE, length(initlambda) * length(dStep))
 trapSaturation      <- rep(FALSE, length(initlambda) * length(dStep))
 
 
-lobsterSizeFile     <- 'https://github.com/vpourfaraj/lobsterCatch/blob/main/inst/extdata/LobsterSizeFreqs.csv'
+lobsterSizeFile     <- 'https://raw.githubusercontent.com/vpourfaraj/lobsterCatch/main/inst/extdata/LobsterSizeFreqs.csv'
 lobsterSexDist      <- list(labels = c('M','F','MM','BF'),
                             prob1 = c(0.55,0.35,0.05,0.05),
                             prob2 = c(0.5,0.50,0,0),
