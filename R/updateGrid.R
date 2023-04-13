@@ -12,41 +12,42 @@
 #' @param qmin is the asymptotic minimum probability of entry (i.e. 0)
 #' @param saturationThreshold is the number of lobsters in a trap at which the probability of
 #' another lobster entering the trap drops to qmin
-#' @param trapSaturation is a logical parameter 
+#' @param trapSaturation is a logical parameter
 #' @param lengthBased is a logical parameter
 #' @param lobLengthThreshold is a length threshold (i.e. CL in centimeters) beyond which there is no chance of catching another lobster
-#' @param sexBased is a logical parameter 
+#' @param sexBased is a logical parameter
 #' @return a list of new coordinates, number of catch and their sizes
 #' @export
-updateGrid    = function(Lobster, Trap, trapCatch, lobSize, lobSex, radiusOfInfluence, 
-                         currentZoI, dStep, howClose, q0, qmin, saturationThreshold, trapSaturation, 
+updateGrid    = function(Lobster, Trap, trapCatch, lobSize, lobSex, radiusOfInfluence,
+                         currentZoI, dStep, howClose, q0, qmin, saturationThreshold, trapSaturation,
                          lengthBased, lobLengthThreshold, sexBased){
-  
+
+
   numberOfLobsters <- nrow(Lobster)
   if(numberOfLobsters>0) {
-    
+
     xNew            <- vector(mode = 'numeric', length = numberOfLobsters)
     yNew            <- vector(mode = 'numeric', length = numberOfLobsters)
     trappedLobster  <- vector(mode = 'numeric', length = numberOfLobsters)
-    
+
     for( lobsterIndex in 1:numberOfLobsters ){
       xOld    <- Lobster[lobsterIndex,1]
       yOld    <- Lobster[lobsterIndex,2]
       trapped <- Lobster[lobsterIndex,3]
-      
+
       if(trapped == 1){
         xNew[lobsterIndex] = xOld
         yNew[lobsterIndex] = yOld
         trappedLobster[lobsterIndex] = trapped
         next()
       }
-      
+
       # Check with Adam about trap interaction, not always the closest trap catches the lobster, right?
       # Why Trap[,c(1,2)] and not just Trap
       minTrap = distanceToClosestTrap(Lobster = c(xOld,yOld), Trap = Trap[,c(1,2)] )
-      
+
       if( minTrap[1] > radiusOfInfluence){
-        
+
         temp                         <- randomMove(Lobster = c(xOld, yOld) , dStep)
         xNew[lobsterIndex]           <- temp$EASTING
         yNew[lobsterIndex]           <- temp$NORTHING
@@ -56,17 +57,17 @@ updateGrid    = function(Lobster, Trap, trapCatch, lobSize, lobSex, radiusOfInfl
         xNew[lobsterIndex] <- temp$EASTING
         yNew[lobsterIndex] <- temp$NORTHING
         trapPathCheck      <- trapInPath(loc1 = c(xOld,yOld), loc2 = c(xNew[lobsterIndex],yNew[lobsterIndex]), Trap = Trap[minTrap[2],], howClose = howClose)
-        
+
         if( trapPathCheck[3] == 1){
-          
+
           if(trapSaturation == TRUE){
-            pC = catchability(q0 = q0, 
-                              qmin = qmin, 
-                              saturationThreshold = saturationThreshold, 
-                              Ct = trapCatch[minTrap[2]], 
-                              lengthBased = lengthBased, 
+            pC = catchability(q0 = q0,
+                              qmin = qmin,
+                              saturationThreshold = saturationThreshold,
+                              Ct = trapCatch[minTrap[2]],
+                              lengthBased = lengthBased,
                               sexBased = sexBased,
-                              lobLengthThreshold = lobLengthThreshold , 
+                              lobLengthThreshold = lobLengthThreshold ,
                               lobSize = lobSize[minTrap[2]],
                               lobSex =  lobSex[minTrap[2]])
             caughtStatus = rbinom(n = 1, size = 1, prob = pC)
@@ -74,7 +75,7 @@ updateGrid    = function(Lobster, Trap, trapCatch, lobSize, lobSex, radiusOfInfl
             pC = q0
             caughtStatus = rbinom(n = 1, size = 1, prob = pC)
           }
-          
+
           if( caughtStatus == 1 ){
             trapCatch[minTrap[2]]        <- trapCatch[minTrap[2]] + 1
             xNew[lobsterIndex]           <- Trap[minTrap[2],1]
@@ -85,14 +86,14 @@ updateGrid    = function(Lobster, Trap, trapCatch, lobSize, lobSex, radiusOfInfl
           }
 
         }
-        
 
-        
+
+
       }
     }
-    
+
     updatedGrid <- data.frame(EASTING = xNew, NORTHING = yNew, trapped = trappedLobster, lobLength = Lobster$lobLength, lobSex = Lobster$lobSex)
     return(list(updatedGrid, trapCatch, lobSize, lobSex))
-    
+
   }
 }

@@ -22,8 +22,11 @@ initialLobsterGrid = function(nrowgrids, ncolgrids, unitarea, initlambda, initD,
     #rate <- (initlambda * unitarea) / ngrids
     #initialLobster  <- rpoisD(n = unitarea,lambda = rate, D = initD)
 
-    initialLobster <- as.vector( replicate(n = ngrids/unitarea, rpoisD(n = unitarea,lambda = initlambda, D = initD)) )
-    LobsterStart    <- data.frame(EASTING = rep(1:ncolgrids,times=nrowgrids),
+    #initialLobster <- as.vector( replicate(n = ngrids/unitarea, rpoisD(n = unitarea,lambda = initlambda, D = initD)) )
+    initialLobster <- rpoisD(n = ngrids/unitarea,lambda = initlambda, D = initD)
+    initialLobster <- c(initialLobster, rep(0,ngrids - length(initialLobster)))
+    initialLobster <- sample(x = initialLobster)
+    LobsterStart   <- data.frame(EASTING = rep(1:ncolgrids,times=nrowgrids),
                                   NORTHING = rep(1:nrowgrids,each=ncolgrids),
                                   Lobs = initialLobster)
     LobsterStart <- subset(LobsterStart,Lobs>0)

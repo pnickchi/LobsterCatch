@@ -15,26 +15,28 @@ GetdfComplete = function(x, extp){
 
   temp           <- bind_cols(x)
 
-  densitylambda       <- rep.int(p$initlambda,          p$realizations)
+  density             <- rep.int(p$initlambda,          p$realizations)
   dstepmov            <- rep.int(p$dStep,               p$realizations)
   saturationThreshold <- rep.int(p$saturationThreshold, p$realizations)
   baitShrinkage       <- rep.int(p$shrinkage,           p$realizations)
+  howClose            <- rep.int(p$howClose,            p$realizations)
+  trapSaturation      <- rep.int(p$trapSaturation,      p$realizations)
 
-  res <- bind_cols(temp, densitylambda, dstepmov, saturationThreshold, baitShrinkage)
+  res <- bind_cols(temp, densitylambda, dstepmov, saturationThreshold, baitShrinkage, howClose, trapSaturation)
 
   clNames <- c(
     paste0('TimeToMax_Trap',    1:ncol(x$TimeToMax)),
     paste0('MaxCatch_Trap',     1:ncol(x$MaxCatch)),
     paste0('LegalCatchWt_Trap', 1:ncol(x$LegalCatchWt)),
-    paste0('TotalCatchWt_Trap', 1:ncol(x$TotalCatchWt))
+    paste0('TotalCatchWt_Trap', 1:ncol(x$TotalCatchWt)),
   )
-  colnames(res) <- c(clNames,'densitylambda','dstepmov','saturationThreshold','baitShrinkage')
+  colnames(res) <- c(clNames,'densitylambda','dstepmov','saturationThreshold','baitShrinkage', 'howClose', 'trapSaturation')
 
   return(res)
 
 }
 
-initlambda          <- c(0.1, 0.5, 1)
+initlambda          <- c(0.1, 0.5, 1, 1.6)
 dStep               <- c(1, 5,  10)
 
 nrowgrids           <- rep(200, length(initlambda) * length(dStep))
@@ -50,8 +52,8 @@ Trap                <- rep(list(data.frame( x = c(100), y = c(100))),  length(in
 ntraps              <- unlist( lapply(X = Trap, nrow) )
 lobLengthThreshold  <- rep(115, length(initlambda) * length(dStep))
 q0                  <- rep(0.5, length(initlambda) * length(dStep))
-qmin                <- rep(0, length(initlambda) * length(dStep))
-realizations        <- rep(50, length(initlambda) * length(dStep))
+qmin                <- rep(0.5, length(initlambda) * length(dStep))
+realizations        <- rep(10, length(initlambda) * length(dStep))
 tSteps              <- rep(50, length(initlambda) * length(dStep))
 sexBased            <- rep(TRUE, length(initlambda) * length(dStep))
 lengthBased         <- rep(TRUE, length(initlambda) * length(dStep))
@@ -64,8 +66,9 @@ lobsterSexDist      <- list(labels = c('M','F','MM','BF'),
                             prob2 = c(0.5,0.50,0,0),
                             lobsterMatThreshold = 100)
 
-initlambda          <- c(0.1, 0.1, 0.1, 0.5, 0.5, 0.5, 1, 1,1)
-dStep               <- c(1,1,1,5,5,5,10,10,10)
+initlambda          <- c(0.1, 0.1, 0.1, 0.5, 0.5, 0.5, 1, 1, 1, 1.6, 1.6, 1.6)
+dStep               <- c(1,   5  , 10 ,  1 ,  5 ,  10, 1, 5, 10, 1, 5, 10)
+#dStep               <- c(1,1,1,5,5,5,10,10,10)
 
 param <- list( nrowgrids=nrowgrids,
                ncolgrids=ncolgrids,
