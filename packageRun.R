@@ -1,4 +1,3 @@
-library(lobsterCatch)
 library(tidyverse)
 library(ggplot2)
 
@@ -9,34 +8,37 @@ p$nrowgrids = 200
 p$ncolgrids = 200
 p$ngrids = p$nrowgrids * p$ncolgrids
 p$unitarea = 100
-p$initlambda = 0.5 # Initial density of lobster
-p$initD = 3  #Initial Dispersion of lobster (initlambda and initD go into rpoissonD to randomly allocation lobster across the grid space)
+
+p$initlambda = 0.5 # Initial density of lobster per unit area
+p$dStep = 1
+p$howClose = 0.01 #initial used value was 0.5
+
+p$initD = 3  #Initial Dispersion of lobster (initlambda and initD go into rpoissonD to randomly allocate lobster across the grid space)
 p$shrinkage = 0.993 #initial shrinkage is 0.993
+
 p$currentZoI = 15
 p$radiusOfInfluence = 15
-p$Trap = data.frame( x = c(50), y = c(50) ) #3 traps were used in our sims
+
+p$q0 = 0.5
+p$qmin = 0 # set to 0 for initial param and to 0.5 when no there is no trap saturation (local depletion)
+p$Trap = data.frame( x = c(100), y = c(100) ) # A single trap in the middle of arena
 p$ntraps = nrow(p$Trap)
 p$saturationThreshold = 5
-p$howClose = 0.5
-p$dStep = 10
-p$lengthBased = TRUE
 
-#p$lobsterSizeFile <- 'C:/Users/pourfarajv/Desktop/Kumu_R_Visulization/AgentbasedModeling/lobsterCatch/inst/extdata/LobsterSizeFreqs.csv'
-p$lobsterSizeFile <- 'D:/Personal/Vahab/Grid/package_on_github/lobsterCatch-PaymanFork/inst/extdata/LobsterSizeFreqs.csv'
-#p$lobsterSizeFile <- LobsterSizeFreqs
+p$lengthBased = TRUE
+p$lobsterSizeFile <- 'https://raw.githubusercontent.com/vpourfaraj/lobsterCatch/main/inst/extdata/LobsterSizeFreqs.csv'
 p$lobLengthThreshold = 115
-p$trapSaturation = FALSE
-p$q0 = 0.5
-p$qmin = 0 # set to 0 for initial param and to 0.5 for local depletion
-p$realizations = 50 #number of iterations/simulations
-p$tSteps = 50       #timesteps per iteration (5 was used before Feb 8th, 2023)
+p$trapSaturation = TRUE
 p$sexBased <- TRUE
 # The following lines creates a sex distribution
 p$lobsterSexDist <- list(labels = c('M','F','MM','BF'), #male, female, mature male, berried female
                          prob1 = c(0.55,0.35,0.05,0.05), #their prob in population
                          prob2 = c(0.5,0.50,0,0), # prob of small males and females that are under lobsterMatThreshold
-                         lobsterMatThreshold = 100  # The average size of mature lobsters
-)
+                         lobsterMatThreshold = 100)  # The average size of mature lobsters
+
+p$realizations = 3 #number of iterations/simulations
+p$tSteps = 50       #timesteps per iteration (5 was used before Feb 8th, 2023)
+
 
 # p$lobsterSexDist <- ''  # in case of p$sexBased = FALSE
 
