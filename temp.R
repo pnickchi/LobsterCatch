@@ -1,6 +1,3 @@
-#This file was written by Payman to atomize the simulation process for combination of factors. Make sure to change parameters
-# on line 42-73 accordingly
-
 # Load packages
 library(tidyverse)
 library(ggplot2)
@@ -10,8 +7,7 @@ library(devtools)
 
 load_all()
 document()
-#check()
-#build()
+
 
 # Define function
 GetdfComplete = function(x, extp){
@@ -39,28 +35,33 @@ GetdfComplete = function(x, extp){
 
 }
 
-initlambda          <- c(0.1, 0.5, 1, 1.6)
-dStep               <- 1:10
+# Defining values for variable
+initlambda          <- c(0.1,   0.5, 1, 1.6) #lobster density to start the simulation
+howClose            <- c(0.5) #The distance from trap withing which a lobster considered trapped
+shrinkage           <- c(0.993) #The rate of bait shrinkage
+dStep               <- c(1,2,5,10) #Distance each lobster moves in a timestep
 
-nrowgrids           <- rep(200, length(initlambda) * length(dStep)) #dimesntions of arena
-ncolgrids           <- rep(200, length(initlambda) * length(dStep))
-unitarea            <- rep(100, length(initlambda) * length(dStep))
-initD               <- rep(3, length(initlambda) * length(dStep))  #inial dispersion index of lobsters in the arena
-shrinkage           <- rep(0.993, length(initlambda) * length(dStep))
-currentZoI          <- rep(15, length(initlambda) * length(dStep)) # The Zone of influence that gets updated in each timestep
-radiusOfInfluence   <- rep(15, length(initlambda) * length(dStep)) # the radious of bait influence
-saturationThreshold <- rep(5, length(initlambda) * length(dStep))
-howClose            <- rep(0.5, length(initlambda) * length(dStep)) #determines at what distance a lobster considered trapped
-Trap                <- rep(list(data.frame( x = c(100), y = c(100))),  length(initlambda) * length(dStep))
+nsettings <- length(initlambda) * length(howClose) * length(shrinkage) * length(dStep)
+
+
+# Variables with fixed values: can be also changed if needed
+nrowgrids           <- rep(200, nsettings)
+ncolgrids           <- rep(200, nsettings)
+unitarea            <- rep(100, nsettings)
+initD               <- rep(3,   nsettings)
+currentZoI          <- rep(15,  nsettings)
+radiusOfInfluence   <- rep(15,  nsettings)
+saturationThreshold <- rep(5,   nsettings)
+Trap                <- rep(list( data.frame(x = c(100), y = c(100)) ), nsettings)
 ntraps              <- unlist( lapply(X = Trap, nrow) )
-lobLengthThreshold  <- rep(115, length(initlambda) * length(dStep))
-q0                  <- rep(0.5, length(initlambda) * length(dStep))
-realizations        <- rep(50, length(initlambda) * length(dStep)) # Number of simulation
-tSteps              <- rep(50, length(initlambda) * length(dStep)) #Soak time
-sexBased            <- rep(TRUE, length(initlambda) * length(dStep))
-lengthBased         <- rep(TRUE, length(initlambda) * length(dStep))
-trapSaturation      <- rep(FALSE, length(initlambda) * length(dStep))
-qmin                <- rep(0.5, length(initlambda) * length(dStep)) #this hase to be set to 0 when trap saturation is TRUE
+lobLengthThreshold  <- rep(115, nsettings)
+q0                  <- rep(0.5, nsettings)
+realizations        <- rep(50,  nsettings)#number of simulations
+tSteps              <- rep(50, nsettings)
+sexBased            <- rep(TRUE, nsettings)
+lengthBased         <- rep(TRUE, nsettings)
+trapSaturation      <- rep(TRUE, nsettings)
+qmin                <- rep(0, nsettings) #need to change to 0 when trap saturation is TRUE
 
 
 lobsterSizeFile     <- 'https://raw.githubusercontent.com/vpourfaraj/lobsterCatch/main/inst/extdata/LobsterSizeFreqs.csv'
@@ -69,8 +70,13 @@ lobsterSexDist      <- list(labels = c('M','F','MM','BF'),
                             prob2 = c(0.5,0.50,0,0),
                             lobsterMatThreshold = 100)
 
-initlambda          <- rep(c(0.1, 0.5, 1, 1.6), 4)
-dStep               <- C(1,1,1,1,2,2,2,2,5,5,5,5,10,10,10,10)
+
+temp <- expand.grid(initlambda, howClose, shrinkage, dStep)
+initlambda <- temp$Var1
+howClose   <- temp$Var2
+shrinkage  <- temp$Var3
+dStep      <- temp$Var4
+
 
 param <- list( nrowgrids=nrowgrids,
                ncolgrids=ncolgrids,
@@ -96,11 +102,11 @@ param <- list( nrowgrids=nrowgrids,
                sexBased=sexBased,
                lobsterSexDist=lobsterSexDist)
 
-nsettings <- length(param$nrowgrids)
 
 
 
-# Loop over list and initialize a parameter list and execute the simulations
+
+# Loop over list, initialize a parameter list and execute the simulations
 
 Simrun  <- list()
 Results <- list()
@@ -110,7 +116,7 @@ for(i in 1:nsettings){
   p <- list()
   p$nrowgrids            <- param$nrowgrids[i]
   p$ncolgrids            <- param$ncolgrids[i]
-  p$ngrids               <- p$nrowgrids[i] * p$ncolgrids[i]
+  p$ngrids               <- param$nrowgrids[i] * param$ncolgrids[i]
   p$unitarea             <- param$unitarea[i]
   p$initlambda           <- param$initlambda[i]
   p$initD                <- param$initD[i]
@@ -133,12 +139,12 @@ for(i in 1:nsettings){
   p$sexBased             <- param$sexBased[i]
   p$lobsterSexDist       <- param$lobsterSexDist
 
-  print( paste0('Running simulation for parameter setting = ', i) )
+  print( paste0('Run the simulation for parameter setting = ', i) )
 
   Simrun[[i]]            <- SimulateLobsterMovement(p)
   Results[[i]]           <- GetSimOutput(Simrun[[i]])
   resultdfcomplete[[i]]  <- GetdfComplete(x = Results[[i]], extp = p)
 
 
-  saveRDS(object = resultdfcomplete[[i]], file = paste0('results_for_debug/Set_', i, '_resultdfcomplete', '.rds'))
+  saveRDS(object = resultdfcomplete[[i]], file = paste0('resultsVP/density_dstep_Saturation5/Set_', i, '_resultdfcomplete', '.rds'))
 }
