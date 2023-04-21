@@ -36,7 +36,7 @@ GetdfComplete = function(x, extp){
 }
 
 # Defining values for variable
-initlambda          <- c(0.1,   0.5, 1, 1.6) #lobster density to start the simulation
+initlambda          <- c(0.1, 0.5, 1, 1.6) #lobster density to start the simulation
 howClose            <- c(0.5) #The distance from trap withing which a lobster considered trapped
 shrinkage           <- c(0.993) #The rate of bait shrinkage
 dStep               <- c(1,2,5,10) #Distance each lobster moves in a timestep
