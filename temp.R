@@ -39,7 +39,7 @@ GetdfComplete = function(x, extp){
 initlambda          <- c(0.1, 0.5, 1, 1.6) #lobster density to start the simulation
 howClose            <- c(0.5) #The distance from trap withing which a lobster considered trapped
 shrinkage           <- c(0.993) #The rate of bait shrinkage
-dStep               <- c(1,2,5,10) #Distance each lobster moves in a timestep
+dStep               <- c(6,7,10) #Distance each lobster moves in a timestep
 
 nsettings <- length(initlambda) * length(howClose) * length(shrinkage) * length(dStep)
 
@@ -60,8 +60,8 @@ realizations        <- rep(50,  nsettings)#number of simulations
 tSteps              <- rep(50, nsettings)
 sexBased            <- rep(TRUE, nsettings)
 lengthBased         <- rep(TRUE, nsettings)
-trapSaturation      <- rep(TRUE, nsettings)
-qmin                <- rep(0, nsettings) #need to change to 0 when trap saturation is TRUE
+trapSaturation      <- rep(FALSE, nsettings)
+qmin                <- rep(0.5, nsettings) #need to change to 0 when trap saturation is TRUE
 
 
 lobsterSizeFile     <- 'https://raw.githubusercontent.com/vpourfaraj/lobsterCatch/main/inst/extdata/LobsterSizeFreqs.csv'
@@ -146,5 +146,5 @@ for(i in 1:nsettings){
   resultdfcomplete[[i]]  <- GetdfComplete(x = Results[[i]], extp = p)
 
 
-  saveRDS(object = resultdfcomplete[[i]], file = paste0('resultsVP/density_dstep_Saturation5/Set_', i, '_resultdfcomplete', '.rds'))
+  saveRDS(object = resultdfcomplete[[i]], file = paste0('Setn_', i, '_localdepletion', '.rds'))
 }

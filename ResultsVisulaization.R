@@ -2,39 +2,38 @@ library(ggplot2)
 library(ggpubr)
 library(tidyverse)
 #In case we need to read an RDS or bunch them
-#Resultscheck<- readRDS("C:/Users/pourfarajv/Desktop/Nosatlambda0.1dstep5.rds")
 
 
 #--Reading in  RDS files and combining w/o saturation datasets
 
 NOSat_densityimapctdf <- list.files( path =
-'C:/Users/pourfarajv/Desktop/Kumu_R_Visulization/AgentbasedModeling/lobsterCatch/resultsVP/densityimpact/NoSaturation/', pattern = "*.rds", full.names = TRUE ) %>%
+'C:/Users/pourfarajv/Desktop/Kumu_R_Visulization/AgentbasedModeling/lobsterCatchV2023/resultsVP/NewResults/', pattern = "*.rds", full.names = TRUE ) %>%
   map_dfr(readRDS) %>%
   mutate(Trap_saturation= "No trap saturation")
 
-Sat5_densityimapctdf <- list.files( path ='C:/Users/pourfarajv/Desktop/Kumu_R_Visulization/AgentbasedModeling/lobsterCatch/resultsVP/densityimpact/', pattern = "*.rds", full.names = TRUE ) %>%
+Sat5_densityimapctdf <- list.files( path ='C:/Users/pourfarajv/Desktop/Kumu_R_Visulization/AgentbasedModeling/lobsterCatchV2023/resultsVP/NewResults/Varieddensity_Varieddstep_Saturation5/', pattern = "*.rds", full.names = TRUE ) %>%
   map_dfr(readRDS) %>%
   mutate(Trap_saturation= "5")
 
 SatimpactDF<- bind_rows(Sat5_densityimapctdf,NOSat_densityimapctdf)
-selecteddensity<- filter(SatimpactDF, densitylambda == 0.1 | densitylambda== 0.5 | densitylambda== 1 | densitylambda== 1.6)
+#selecteddensity<- filter(SatimpactDF, densitylambda == 0.1 | densitylambda== 0.5 | densitylambda== 1 | densitylambda== 1.6)
 
 # Plotting (Fig 4)
-ggplot(selecteddensity, aes(x=factor(densitylambda), y=maxcatchno)) +
+ggplot(SatimpactDF, aes(x=factor(densitylambda), y=MaxCatch_Trap1)) +
   stat_summary(fun.y=mean,  geom="line", aes(group = Trap_saturation, color=Trap_saturation)) +
   stat_summary(fun.y=mean,  geom="point", aes(group = Trap_saturation, color=Trap_saturation)) +
   xlab("Lobster density") +
   theme(panel.border = element_blank()) +
-  scale_y_continuous(name = "Mean cath (no lobster per trap)", limits = c(0,25))  +
-  ggtitle("Fig 4 of Addison & Bell paper replicated using 3 traps")
+  scale_y_continuous(name = "Mean cath (no lobster per trap)", limits = c(0,40))  +
+  ggtitle("Fig 4 of Addison & Bell")
 
 
 # (Fig 6)
 
-localdepDF <- list.files( path ='C:/Users/pourfarajv/Desktop/Kumu_R_Visulization/AgentbasedModeling/lobsterCatch/resultsVP/localdepletion/', pattern = "*.rds", full.names = TRUE ) %>%
+localdepDF <- list.files( path ='C:/Users/pourfarajv/Desktop/Kumu_R_Visulization/AgentbasedModeling/lobsterCatchV2023/resultsVP/NewResults/', pattern = "*.rds", full.names = TRUE ) %>%
   map_dfr(readRDS)
 localdepDF$dstepmov <- factor(localdepDF$dstepmov)
-ggplot(localdepDF, aes(x=densitylambda, y=maxcatchno)) +
+ggplot(localdepDF, aes(x=densitylambda, y=MaxCatch_Trap1)) +
   stat_summary(fun.y=mean,  geom="line", aes(group = dstepmov, color=dstepmov, linetype=dstepmov)) +
   stat_summary(fun.y=mean,  geom="point", aes(group = dstepmov, color=dstepmov)) +
   xlab("Lobster density") +
