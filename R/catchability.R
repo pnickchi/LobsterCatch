@@ -13,9 +13,9 @@
 #' @param lobSex is the sex of the lobster
 #' @return Returns the probability of entry to trap
 #' @export
+
 catchability <- function(q0, qmin, saturationThreshold, Ct, lengthBased, lobLengthThreshold,
                          lobSize = NA, sexBased, lobSex){
-
 
 
   if( (lengthBased == FALSE) & (sexBased == FALSE) ){
