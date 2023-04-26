@@ -147,3 +147,7 @@ for(i in 1:nsettings){
 
   saveRDS(object = resultdfcomplete[[i]], file = paste0('Set', i, '_varyingShrinkage', '.rds'))
 }
+
+
+
+# test
