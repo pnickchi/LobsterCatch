@@ -2,16 +2,16 @@
 % Please edit documentation in R/dispersion.R
 \name{dispersion}
 \alias{dispersion}
-\title{This function calculates the variance to mean ratio (AKA dispersion index)}
+\title{This function calculates the variance to mean ratio (also known as dispersion index).}
 \usage{
 dispersion(x)
 }
 \arguments{
-\item{x}{is a numeric vector}
+\item{x}{is a numeric vector.}
 }
 \value{
-Returns the dispersion index
+Returns the dispersion index.
 }
 \description{
-This function calculates the variance to mean ratio (AKA dispersion index)
+This function calculates the variance to mean ratio (also known as dispersion index).
 }

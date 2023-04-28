@@ -1,17 +1,23 @@
-Package: lobsterCatch 
+Package: lobsterCatch
 Title: Models capture processes in American lobster fishery
-Version: 0.0.2.2021
+Version: 0.1.0
 Authors@R: c(
-    person("Pourfaraj", "vahab", email = "Vahab.Pourfaraj@dfo-mpo.gc.ca", role = "aut"),
-    person("Cook", "Adam", email = "Adam.Cook@dfo-mpo.gc.ca", role = "aut"),
-    person("Jamie", "Tam", email = "Jamie.Tam@dfo-mpo.gc.ca", role = "ctb"))
-
-Description: To Be added
-License: `use_mit_license()`, `use_gpl3_license()` or friends to
-    pick a license
+    person("Pourfaraj", "vahab", , "vpourfaraj@gmail.com", role = c("cre", "aut")),
+    person("Cook", "Adam", , "Adam.Cook@dfo-mpo.gc.ca", role = c("cre", "aut")),
+    person("Jamie", "Tam", , "Jamie.Tam@dfo-mpo.gc.ca", role = "ctb"),
+    person("Nickchi", "Payman", , "payman.nickchi@gmail.com", role = c("cre", "aut"))
+  )
+Description: Functions to simulate lobster movement in a grid based on
+    different ecological parameter settings and generate some ractical
+    results.
+License: GPL (>= 3)
+Depends: 
+    R (>= 2.10)
+Imports: 
+    stats,
+    utils,
+    bio.lobster
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
-Depends: 
-    R (>= 2.10)

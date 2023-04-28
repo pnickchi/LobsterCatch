@@ -1,13 +1,13 @@
-#' This function simulates an arena, with lobsters in it based on the provided density, size and sex ratio
-#' @param nrowgrids is a numeric value which defines number of rows of the arena
-#' @param ncolgrids is a numeric value which defines number of columns of the arena
+#' This function simulates an arena (or grid) with lobsters in it based on the provided density, size and sex ratio.
+#' @param nrowgrids is a numeric value which defines the number of rows of the arena.
+#' @param ncolgrids is a numeric value which defines the number of columns of the arena.
 #' @param unitarea is the unit area used for estimating density of lobsters.
-#' @param initlambda is the density of lobsters at the beginning of simulation
-#' @param initD is the dispersion index of lobsters on seabed at the beginning of the simulation
-#' @param losbterSizeFile is a csv file that contains the frequency of lobsters class size
-#' @param losbterSexDist is a list that contains the sex ratio of lobsters
-#' @return Returns  x and y coordinates of simulated lobsters at the beginning
-
+#' @param initlambda is the density of lobsters at the beginning of simulation.
+#' @param initD is the dispersion index of lobsters on seabed at the beginning of the simulation.
+#' @param lobsterSizeFile is a csv file that contains the frequency of lobsters class size.
+#' @param lobsterSexDist is a list that contains the sex ratio of lobsters.
+#' @return Returns x and y coordinates of simulated lobsters at the beginning.
+#' @import utils
 initialLobsterGrid = function(nrowgrids, ncolgrids, unitarea, initlambda, initD, lobsterSizeFile, lobsterSexDist){
 
   ngrids <- nrowgrids * ncolgrids
@@ -67,9 +67,5 @@ initialLobsterGrid = function(nrowgrids, ncolgrids, unitarea, initlambda, initD,
     initialxyCoordinate[-indx1, 'lobSex'] <- sample(x = x, size = nrow(initialxyCoordinate) - length(indx1), replace = TRUE, prob = p2)
   }
 
-
   return(initialxyCoordinate)
-
 }
-
-

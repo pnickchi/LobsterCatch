@@ -1,7 +1,8 @@
-#' This function calculates the Euclidean distance between Trap(s) and each individual lobster
-#' @param Lobster location of lobster in x and y coordinates
-#' @param Trap location of trap in x and y coordinates
-#' @return Returns the distance to trap
+#' This function calculates the Euclidean distance between Trap(s) and each individual lobster. The function is internally called
+#' in `distanceToClosestTrap` function.
+#' @param Lobster location of lobster in the grid in x and y coordinates.
+#' @param Trap location of trap in the grid in x and y coordinates.
+#' @return Returns the distance to trap.
 #' @export
 distanceToTrapCalculator<- function(Lobster,Trap){
   xLobster = Lobster[1]

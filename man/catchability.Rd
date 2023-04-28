@@ -2,8 +2,8 @@
 % Please edit documentation in R/catchability.R
 \name{catchability}
 \alias{catchability}
-\title{This function calculates the probability of entry to trap (aka catchability). In addition to parameters in Addison & Bell
-1997, length of catch can be added and included in calculation of catchability.}
+\title{This function calculates the probability of entry into the trap, also known as catchability. It includes the parameters described
+in Addison and Bell (1997), and can incorporate the length of the catch while calculating the catchability.}
 \usage{
 catchability(
   q0,
@@ -18,31 +18,33 @@ catchability(
 )
 }
 \arguments{
-\item{q0}{is the initial probability of entry into an empty trap(i.e. 0.5).}
+\item{q0}{is the initial probability of entry into an empty trap (i.e. 0.5). It must be a number between 0 and 1.}
 
 \item{qmin}{is the asymptotic minimum probability of entry (i.e. 0).}
 
-\item{saturationThreshold}{is the number of lobsters in a trap at which the probability of
-another lobster entering the trap drops to qmin}
+\item{saturationThreshold}{represents the maximum number of lobsters that a trap can hold before the likelihood of another
+lobster entering the trap decreases to qmin.}
 
 \item{Ct}{is the number of caught lobster}
 
-\item{lengthBased}{is a logical parameter(TRUE/FALSE) which determines if length of catch needs too be considered}
+\item{lengthBased}{is a binary value (TRUE/FALSE) which determines whether the length of the lobster in simulation matters or not.}
 
 \item{lobLengthThreshold}{is a length threshold (i.e. CL in centimeters) beyond which there is no chance of catching another lobster}
 
-\item{lobSize}{is a size frequency dataset which is set to NA by default}
+\item{lobSize}{is a size frequency dataset (maybe add some details here?). The default value is NA.}
 
-\item{sexBased}{is a logical parameter(TRUE/FALSE) which determines if sex of catch needs too be considered}
+\item{sexBased}{is a binary value (TRUE/FALSE) which determines whether the sex of lobster needs too be considered.}
 
-\item{lobSex}{is the sex of the lobster}
-
-\item{r}{is the instantaneous rate of change in qo with respect to Ct}
+\item{lobSex}{is the sex of the lobster.}
 }
 \value{
-Returns the probability of entry to trap
+Returns the probability of entry to trap.
 }
 \description{
-This function calculates the probability of entry to trap (aka catchability). In addition to parameters in Addison & Bell
-1997, length of catch can be added and included in calculation of catchability.
+This function calculates the probability of entry into the trap, also known as catchability. It includes the parameters described
+in Addison and Bell (1997), and can incorporate the length of the catch while calculating the catchability.
+}
+\references{
+Julian T. Addison and Michael C. Bell (1997), Simulation modelling of capture processes in trap fisheries for clawed
+lobsters, Marine Freshwater Research, 48(8), 1035-1044, https://www.publish.csiro.au/MF/MF97169
 }

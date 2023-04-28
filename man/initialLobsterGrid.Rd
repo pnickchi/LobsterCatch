@@ -2,7 +2,7 @@
 % Please edit documentation in R/initialLobsterGrid.R
 \name{initialLobsterGrid}
 \alias{initialLobsterGrid}
-\title{This function simulates an arena, with lobsters in it based on the provided density, size and sex ratio}
+\title{This function simulates an arena (or grid) with lobsters in it based on the provided density, size and sex ratio.}
 \usage{
 initialLobsterGrid(
   nrowgrids,
@@ -15,23 +15,23 @@ initialLobsterGrid(
 )
 }
 \arguments{
-\item{nrowgrids}{is a numeric value which defines number of rows of the arena}
+\item{nrowgrids}{is a numeric value which defines the number of rows of the arena.}
 
-\item{ncolgrids}{is a numeric value which defines number of columns of the arena}
+\item{ncolgrids}{is a numeric value which defines the number of columns of the arena.}
 
 \item{unitarea}{is the unit area used for estimating density of lobsters.}
 
-\item{initlambda}{is the density of lobsters at the beginning of simulation}
+\item{initlambda}{is the density of lobsters at the beginning of simulation.}
 
-\item{initD}{is the dispersion index of lobsters on seabed at the beginning of the simulation}
+\item{initD}{is the dispersion index of lobsters on seabed at the beginning of the simulation.}
 
-\item{losbterSizeFile}{is a csv file that contains the frequency of lobsters class size}
+\item{lobsterSizeFile}{is a csv file that contains the frequency of lobsters class size.}
 
-\item{losbterSexDist}{is a list that contains the sex ratio of lobsters}
+\item{lobsterSexDist}{is a list that contains the sex ratio of lobsters.}
 }
 \value{
-Returns  x and y coordinates of simulated lobsters at the beginning
+Returns x and y coordinates of simulated lobsters at the beginning.
 }
 \description{
-This function simulates an arena, with lobsters in it based on the provided density, size and sex ratio
+This function simulates an arena (or grid) with lobsters in it based on the provided density, size and sex ratio.
 }

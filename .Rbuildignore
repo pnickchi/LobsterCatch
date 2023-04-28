@@ -1,2 +1,8 @@
 ^lobsterCatch\.Rproj$
 ^\.Rproj\.user$
+results/
+resultsVP/
+temp.R
+ResultsVisulaization.R
+packageRun.R
+^LICENSE\.md$

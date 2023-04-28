@@ -2,9 +2,8 @@
 #' @param n is the number of observations (lobsters) to be generated
 #' @param lambda is the mean density to be used
 #' @param D is the dispersion index to be used
-#' @param sz this puts the overdispersion in terms of lambda(mean) and returns the appropriate size for binomial distribution
+#' @import stats
 #' @return a vector of integers that is used as initial distribution of lobsters on the seabed.
-#' @export
 rpoisD<-function (n, lambda, D=1){
   if (D==1){
     rpois(n, lambda)

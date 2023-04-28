@@ -12,8 +12,6 @@ rpoisD(n, lambda, D = 1)
 \item{lambda}{is the mean density to be used}
 
 \item{D}{is the dispersion index to be used}
-
-\item{sz}{this puts the overdispersion in terms of lambda(mean) and returns the appropriate size for binomial distribution}
 }
 \value{
 a vector of integers that is used as initial distribution of lobsters on the seabed.

@@ -4,6 +4,7 @@
 #' @param Trap is the x & y coordinates of trap(s)
 #' @param trapCatch number of captured lobster
 #' @param lobSize size of captured lobster
+#' @param lobSex to-do-list: check with Vahab
 #' @param radiusOfInfluence is the initial radius of influence (I0 in the paper)
 #' @param dStep is how much a lobster moves in each time step
 #' @param currentZoI is the bait's area of influence at each timestep
@@ -17,7 +18,6 @@
 #' @param lobLengthThreshold is a length threshold (i.e. CL in centimeters) beyond which there is no chance of catching another lobster
 #' @param sexBased is a logical parameter
 #' @return a list of new coordinates, number of catch and their sizes
-#' @export
 updateGrid    = function(Lobster, Trap, trapCatch, lobSize, lobSex, radiusOfInfluence,
                          currentZoI, dStep, howClose, q0, qmin, saturationThreshold, trapSaturation,
                          lengthBased, lobLengthThreshold, sexBased){

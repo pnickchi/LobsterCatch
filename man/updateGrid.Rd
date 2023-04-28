@@ -33,6 +33,8 @@ updateGrid(
 
 \item{lobSize}{size of captured lobster}
 
+\item{lobSex}{to-do-list: check with Vahab}
+
 \item{radiusOfInfluence}{is the initial radius of influence (I0 in the paper)}
 
 \item{currentZoI}{is the bait's area of influence at each timestep}
