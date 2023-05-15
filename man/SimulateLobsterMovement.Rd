@@ -20,14 +20,14 @@ initlambda          <- 0.1
 howClose            <- 0.5
 shrinkage           <- 0.993
 dStep               <- 5
-nrowgrids           <- 100
-ncolgrids           <- 100
+nrowgrids           <- 10
+ncolgrids           <- 10
 unitarea            <- 10
 initD               <- 1
 currentZoI           <- 15
 radiusOfInfluence   <- 15
 saturationThreshold <- 5
-Trap                <- data.frame(x = c(10), y = c(10))
+Trap                <- data.frame(x = c(5), y = c(5))
 ntraps              <- 1
 lobLengthThreshold   <- 115
 q0                   <- 0.5
