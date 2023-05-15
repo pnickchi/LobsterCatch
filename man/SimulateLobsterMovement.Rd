@@ -27,14 +27,14 @@ initD               <- 1
 currentZoI           <- 15
 radiusOfInfluence   <- 15
 saturationThreshold <- 5
-Trap                <- data.frame(x = c(100), y = c(100))
+Trap                <- data.frame(x = c(10), y = c(10))
 ntraps              <- 1
 lobLengthThreshold   <- 115
 q0                   <- 0.5
 realizations         <- 50
 tSteps               <- 50
 sexBased             <- TRUE
-lengthBased          <- TRUE
+lengthBased          <- FALSE
 trapSaturation       <- TRUE
 qmin                 <- 0
 lobsterSizeFile      <- ''
@@ -67,4 +67,7 @@ param <- list( nrowgrids=nrowgrids,
               sexBased=sexBased,
               lobsterSexDist=lobsterSexDist)
 sim <- SimulateLobsterMovement(p = param)
+}
+\seealso{
+to-do-list
 }
