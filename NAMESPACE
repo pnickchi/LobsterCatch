@@ -2,10 +2,5 @@
 
 export(GetSimOutput)
 export(SimulateLobsterMovement)
-export(distanceToClosestTrap)
-export(distanceToTrapCalculator)
-export(randomMove)
-export(replicateCoordinates)
-export(trapInPath)
 import(stats)
 import(utils)
