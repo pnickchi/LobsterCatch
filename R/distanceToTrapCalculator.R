@@ -3,7 +3,6 @@
 #' @param Lobster location of lobster in the grid in x and y coordinates.
 #' @param Trap location of trap in the grid in x and y coordinates.
 #' @return Returns the distance to trap.
-#' @export
 distanceToTrapCalculator<- function(Lobster,Trap){
   xLobster = Lobster[1]
   yLobster = Lobster[2]

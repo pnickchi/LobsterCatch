@@ -4,7 +4,6 @@
 #' @param Trap is the location of trap
 #' @param howClose sets the distance from the trap within which catch occurs
 #' @return Returns a vector that contain lobster path and if it is trapped or not
-#' @export
 trapInPath = function(loc1, loc2, Trap, howClose){
   x = seq(loc1[1],loc2[1],length.out = 10)
   y = seq(loc1[2],loc2[2],length.out = 10)
