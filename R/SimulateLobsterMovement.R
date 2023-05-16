@@ -4,57 +4,6 @@
 #' @seealso to-do-list
 #' @export
 #' @examples
-#' initlambda          <- 0.1
-#' howClose            <- 0.5
-#' shrinkage           <- 0.993
-#' dStep               <- 5
-#' nrowgrids           <- 10
-#' ncolgrids           <- 10
-#' unitarea            <- 10
-#' initD               <- 1
-#' currentZoI           <- 15
-#' radiusOfInfluence   <- 15
-#' saturationThreshold <- 5
-#' Trap                <- data.frame(x = c(5), y = c(5))
-#' ntraps              <- 1
-#' lobLengthThreshold   <- 115
-#' q0                   <- 0.5
-#' realizations         <- 50
-#' tSteps               <- 50
-#' sexBased             <- TRUE
-#' lengthBased          <- FALSE
-#' trapSaturation       <- TRUE
-#' qmin                 <- 0
-#' lobsterSizeFile      <- ''
-#' lobsterSexDist       <- list(labels = c('M','F','MM','BF'),
-#' prob1 = c(0.55,0.35,0.05,0.05),
-#' prob2 = c(0.5,0.50,0,0),
-#' lobsterMatThreshold = 100)
-#'
-#' param <- list( nrowgrids=nrowgrids,
-#'               ncolgrids=ncolgrids,
-#'               unitarea=unitarea,
-#'               initlambda=initlambda,
-#'               initD=initD,
-#'               shrinkage=shrinkage,
-#'               currentZoI=currentZoI,
-#'               radiusOfInfluence=radiusOfInfluence,
-#'               Trap=Trap,
-#'               ntraps=ntraps,
-#'               saturationThreshold=saturationThreshold,
-#'               howClose=howClose,
-#'               dStep=dStep,
-#'               lengthBased=lengthBased,
-#'               lobsterSizeFile=lobsterSizeFile,
-#'               lobLengthThreshold=lobLengthThreshold,
-#'               trapSaturation=trapSaturation,
-#'               q0=q0,
-#'               qmin=qmin,
-#'               realizations=realizations,
-#'               tSteps=tSteps,
-#'               sexBased=sexBased,
-#'               lobsterSexDist=lobsterSexDist)
-#' sim <- SimulateLobsterMovement(p = param)
 
 SimulateLobsterMovement = function(p){
 
@@ -85,7 +34,7 @@ SimulateLobsterMovement = function(p){
   with(p, {
 
   if( (p$lengthBased == TRUE) & (p$lobsterSizeFile == '') ){
-      print('Please provide a csv file for lobster size distribution.')
+      print('Upload a csv file for lobster size distribution.')
       lobsterSizeFile   <- file.choose()
       p$lobsterSizeFile <- lobsterSizeFile
   }
@@ -131,10 +80,7 @@ SimulateLobsterMovement = function(p){
                                   lengthBased = lengthBased,
                                   lobLengthThreshold = lobLengthThreshold,
                                   sexBased = sexBased)
-      # Adam: DO you think, this would help?
-      #the following line can be moved out of
-      #the loop so that we simply just Just keep the last iteration? To make things faster
-      #and less memory demanding?
+
       coordinatesOverTime[[t]] <- tempUpdateGrid[[1]]
       trapCatch[[t]]           <- tempUpdateGrid[[2]]
       lobSize[[t]]             <- tempUpdateGrid[[3]]
@@ -159,7 +105,7 @@ SimulateLobsterMovement = function(p){
     outputs$lobSex   = outlobsex
 
     CatchSimulationOutput[[k]] = outputs
-    #print(paste('Timing', Sys.time()-start, 'for iteration #',k,sep=" "))
+
   }
   return(CatchSimulationOutput)
   })

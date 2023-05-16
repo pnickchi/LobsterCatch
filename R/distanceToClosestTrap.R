@@ -1,7 +1,7 @@
-#' This function finds the closest trap to a lobster and calculates its distance and returns the distance and trap number.
+#' The function finds the closest trap to a lobster and caluculates the distance.
 #' @param Lobster location of lobster in the grid in x and y coordinates.
 #' @param Trap location of trap in x and y coordinates.
-#' @return Returns distance to closest trap and the trap number.
+#' @return Returns distance to closest trap and the trap number in case of multiple traps.
 distanceToClosestTrap <- function(Lobster, Trap){
   ds = unlist(apply(Trap,1,distanceToTrapCalculator,Lobster))
   dmin = which.min(ds)

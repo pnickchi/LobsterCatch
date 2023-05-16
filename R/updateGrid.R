@@ -1,21 +1,20 @@
 #' This function updates the coordinate of each lobster at each timestep,
-#' The distanceToTrap function calculates the distance to the closest trap
 #' @param Lobster is the x & y coordinates of each lobster
-#' @param Trap is the x & y coordinates of trap(s)
-#' @param trapCatch number of captured lobster
-#' @param lobSize size of captured lobster
+#' @param Trap is the x & y coordinates of trap
+#' @param trapCatch number of trapped lobster
+#' @param lobSize size of trapped lobster
 #' @param lobSex to-do-list: check with Vahab
-#' @param radiusOfInfluence is the initial radius of influence (I0 in the paper)
+#' @param radiusOfInfluence is the initial radius of influence
 #' @param dStep is how much a lobster moves in each time step
 #' @param currentZoI is the bait's area of influence at each timestep
 #' @param howClose sets the distance from the trap within which catch occurs
-#' @param q0 is the initial probability of entry into an empty trap(i.e. 0.5)
-#' @param qmin is the asymptotic minimum probability of entry (i.e. 0)
+#' @param q0 is the initial probability of entry into an empty trap
+#' @param qmin is the asymptotic minimum probability of entry
 #' @param saturationThreshold is the number of lobsters in a trap at which the probability of
-#' another lobster entering the trap drops to qmin
+#' another lobster entering the trap drops to zero
 #' @param trapSaturation is a logical parameter
 #' @param lengthBased is a logical parameter
-#' @param lobLengthThreshold is a length threshold (i.e. CL in centimeters) beyond which there is no chance of catching another lobster
+#' @param lobLengthThreshold is a size threshold (Carapace Length in mm) beyond which there is no chance of catching more lobster
 #' @param sexBased is a logical parameter
 #' @return a list of new coordinates, number of catch and their sizes
 updateGrid    = function(Lobster, Trap, trapCatch, lobSize, lobSex, radiusOfInfluence,
