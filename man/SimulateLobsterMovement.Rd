@@ -16,5 +16,5 @@ Returns a list
 Function to run the simulation based on defined parameters
 }
 \seealso{
-Examples of the input parameters can be found here: https://github.com/vpourfaraj/lobsterCatch/tree/main/R
+Examples of the input parameters can be found here: https://github.com/pnickchi/lobstercatch/blob/main/Examplecode.R
 }
