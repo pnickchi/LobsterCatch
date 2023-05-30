@@ -2,20 +2,20 @@
 % Please edit documentation in R/rpoisD.R
 \name{rpoisD}
 \alias{rpoisD}
-\title{This function generates either a Poisson or a negative binomial distribution of lobsters on the sea bed}
+\title{This function generates  a Poisson or a negative binomial distribution for lobsters in the arena}
 \usage{
 rpoisD(n, lambda, D = 1)
 }
 \arguments{
-\item{n}{is the number of observations (lobsters) to be generated}
+\item{n}{is the number of lobsters to be generated}
 
-\item{lambda}{is the mean density to be used}
+\item{lambda}{is the mean density of lobsters}
 
-\item{D}{is the dispersion index to be used}
+\item{D}{is the dispersion index to be used. Default value is 1}
 }
 \value{
-a vector of integers that is used as initial distribution of lobsters on the seabed.
+A vector of integers that is used as initial distribution of lobsters
 }
 \description{
-This function generates either a Poisson or a negative binomial distribution of lobsters on the sea bed
+This function generates  a Poisson or a negative binomial distribution for lobsters in the arena
 }

@@ -1,6 +1,6 @@
 #' Lobster size frequency data
 #'
-#' The dataset contains frequency of each size bin from Carapace length of 50 mm to 200 mm
+#' The dataset contains frequency of each size bin (from Carapace length of 50 mm to 200 mm)
 #'
 #' \itemize{
 #'   \item bins (Size groups/bins)

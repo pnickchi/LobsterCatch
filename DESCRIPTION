@@ -1,5 +1,5 @@
-Package: lobstercatch
-Title: Models capture processes in American lobster fishery
+Package: LobsterCatch
+Title: Models capture processes in American lobster trap fishery
 Version: 0.1.0
 Authors@R: c(
     person("Pourfaraj", "vahab", , "vpourfaraj@gmail.com", role = c("aut","cre")),
@@ -7,9 +7,7 @@ Authors@R: c(
     person("Jamie", "Tam", , "Jamie.Tam@dfo-mpo.gc.ca", role = "ctb"),
     person("Nickchi", "Payman", , "payman.nickchi@gmail.com", role = c("aut"))
   )
-Description: Functions to simulate lobster movement in a grid based on
-    different ecological parameter settings and generate some ractical
-    results.
+Description: Functions to simulate lobster catch process in a trap fishery. Factors such as lobsters behavior, their size and sex as well as bait shrinkage rate can be modeled using the package.
 License: GPL (>= 3)
 Depends: 
     R (>= 2.10)

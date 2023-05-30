@@ -2,7 +2,7 @@
 % Please edit documentation in R/trapInPath.R
 \name{trapInPath}
 \alias{trapInPath}
-\title{This function determines if lobster passes through a trap and determines if it is caught}
+\title{This function determines if lobster gets into a trap and is caught.}
 \usage{
 trapInPath(loc1, loc2, Trap, howClose)
 }
@@ -13,11 +13,11 @@ trapInPath(loc1, loc2, Trap, howClose)
 
 \item{Trap}{is the location of trap}
 
-\item{howClose}{sets the distance from the trap within which catch occurs}
+\item{howClose}{The area within which a lobster considered trapped}
 }
 \value{
-Returns a vector that contain lobster path and if it is trapped or not
+Returns a vector that contain lobster path and whether its trapped
 }
 \description{
-This function determines if lobster passes through a trap and determines if it is caught
+This function determines if lobster gets into a trap and is caught.
 }

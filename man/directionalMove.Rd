@@ -2,10 +2,8 @@
 % Please edit documentation in R/directionalMove.R
 \name{directionalMove}
 \alias{directionalMove}
-\title{This function controls the movements of lobsters toward the trap. There are both directional and random move components considered in
-this function. The proximity of a lobster to a trap controls the magnitude of each components, i.e closer a lobster gets to the trap
-the smaller the random component of movement. The directional move depends on radius of influence of a trap and current zone of
-influence.}
+\title{This function models movement of lobsters toward the trap.The distance of lobsters to trap determines the magnitude of those moves.
+As lobster gets closer to the trap, the magnitude of its directional move becomes larger and the random move becomes smaller.}
 \usage{
 directionalMove(
   Lobster,
@@ -19,22 +17,20 @@ directionalMove(
 \arguments{
 \item{Lobster}{location of lobster in the grid in x and y coordinates.}
 
-\item{dStep}{defines the distance that each lobster moves in each time step.}
+\item{dStep}{Distance that each lobster moves during one time step.}
 
-\item{minDistoTrap}{defines the minimum distance to the trap.}
+\item{minDistoTrap}{Distance from the trap.}
 
-\item{Trap}{location of trap in the grid in x and y coordinates.}
+\item{Trap}{location of trap in the arena.}
 
-\item{radiusOfInfluence}{trap's radius of influence.}
+\item{radiusOfInfluence}{Radius of influence for the baited trap.}
 
-\item{currentZoI}{initial zone of influence}
+\item{currentZoI}{Radius of influence in each time step given the bait shrinkage.}
 }
 \value{
-Returns the new coordinates of each lobster in the grid after a directional move is applied.
+Returns the new coordinates of each lobster in the arena after each directional move.
 }
 \description{
-This function controls the movements of lobsters toward the trap. There are both directional and random move components considered in
-this function. The proximity of a lobster to a trap controls the magnitude of each components, i.e closer a lobster gets to the trap
-the smaller the random component of movement. The directional move depends on radius of influence of a trap and current zone of
-influence.
+This function models movement of lobsters toward the trap.The distance of lobsters to trap determines the magnitude of those moves.
+As lobster gets closer to the trap, the magnitude of its directional move becomes larger and the random move becomes smaller.
 }

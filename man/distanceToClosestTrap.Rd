@@ -2,18 +2,18 @@
 % Please edit documentation in R/distanceToClosestTrap.R
 \name{distanceToClosestTrap}
 \alias{distanceToClosestTrap}
-\title{This function finds the closest trap to a lobster and calculates its distance and returns the distance and trap number.}
+\title{The function finds the closest trap to a lobster and calculates the distance.}
 \usage{
 distanceToClosestTrap(Lobster, Trap)
 }
 \arguments{
-\item{Lobster}{location of lobster in the grid in x and y coordinates.}
+\item{Lobster}{location of lobster in the arena}
 
-\item{Trap}{location of trap in x and y coordinates.}
+\item{Trap}{location of trap in the arena}
 }
 \value{
-Returns distance to closest trap and the trap number.
+Returns distance to closest trap and saves the trap number in case of multiple traps.
 }
 \description{
-This function finds the closest trap to a lobster and calculates its distance and returns the distance and trap number.
+The function finds the closest trap to a lobster and calculates the distance.
 }

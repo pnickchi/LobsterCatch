@@ -1,10 +1,8 @@
-#' A function to run the simulation based on defined parameters
-#' @param p is a list which contains all input variables
+#' Function to run the simulation based on defined parameters
+#' @param p is a list of all input variables
 #' @return Returns a list
-#' @seealso to-do-list
+#' @seealso Examples of the input parameters can be found here: https://github.com/vpourfaraj/lobsterCatch/tree/main/R
 #' @export
-#' @examples
-
 SimulateLobsterMovement = function(p){
 
   nrowgrids           <- p$nrowgrids

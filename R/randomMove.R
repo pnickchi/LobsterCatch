@@ -1,4 +1,4 @@
-#' The function randomly selects an angle (0:360) and moves the lobster. This is called when a lobster
+#' The function randomly selects an angle (0:360) and moves the lobster. This function is called when a lobster
 #' is outside the area of influence.
 #' @param Lobster location of lobster in x and y coordinates
 #' @param  dStep  is how much a lobster moves in each time step

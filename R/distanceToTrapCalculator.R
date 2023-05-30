@@ -1,4 +1,4 @@
-#' This function calculates the Euclidean distance between Trap(s) and each individual lobster. The function is internally called
+#' This function calculates the Euclidean distance between Trap(s) and each lobster. The function is internally called
 #' in `distanceToClosestTrap` function.
 #' @param Lobster location of lobster in the grid in x and y coordinates.
 #' @param Trap location of trap in the grid in x and y coordinates.

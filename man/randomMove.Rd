@@ -2,7 +2,7 @@
 % Please edit documentation in R/randomMove.R
 \name{randomMove}
 \alias{randomMove}
-\title{The function randomly selects an angle (0:360) and moves the lobster. This is called when a lobster
+\title{The function randomly selects an angle (0:360) and moves the lobster. This function is called when a lobster
 is outside the area of influence.}
 \usage{
 randomMove(Lobster, dStep)
@@ -16,6 +16,6 @@ randomMove(Lobster, dStep)
 Returns the new coordinates of each lobster
 }
 \description{
-The function randomly selects an angle (0:360) and moves the lobster. This is called when a lobster
+The function randomly selects an angle (0:360) and moves the lobster. This function is called when a lobster
 is outside the area of influence.
 }

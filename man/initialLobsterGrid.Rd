@@ -2,7 +2,7 @@
 % Please edit documentation in R/initialLobsterGrid.R
 \name{initialLobsterGrid}
 \alias{initialLobsterGrid}
-\title{This function simulates an arena (or grid) with lobsters in it based on the provided density, size and sex ratio.}
+\title{This function simulates an arena (or grid) with lobsters in it based on the provided density, size and sex distribution.}
 \usage{
 initialLobsterGrid(
   nrowgrids,
@@ -27,11 +27,11 @@ initialLobsterGrid(
 
 \item{lobsterSizeFile}{is a csv file that contains the frequency of lobsters class size.}
 
-\item{lobsterSexDist}{is a list that contains the sex ratio of lobsters.}
+\item{lobsterSexDist}{is a list that contains the sex ratio of lobsters. Possible values are M=male, F=female, MM=mature male, BF=berried female)}
 }
 \value{
 Returns x and y coordinates of simulated lobsters at the beginning.
 }
 \description{
-This function simulates an arena (or grid) with lobsters in it based on the provided density, size and sex ratio.
+This function simulates an arena (or grid) with lobsters in it based on the provided density, size and sex distribution.
 }

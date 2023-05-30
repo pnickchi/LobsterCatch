@@ -2,8 +2,8 @@
 #' @param Lobster is the x & y coordinates of each lobster
 #' @param Trap is the x & y coordinates of trap
 #' @param trapCatch number of trapped lobster
-#' @param lobSize size of trapped lobster
-#' @param lobSex to-do-list: check with Vahab
+#' @param lobSize Size of trapped lobster
+#' @param lobSex Sex of trapped lobster
 #' @param radiusOfInfluence is the initial radius of influence
 #' @param dStep is how much a lobster moves in each time step
 #' @param currentZoI is the bait's area of influence at each timestep
@@ -12,10 +12,10 @@
 #' @param qmin is the asymptotic minimum probability of entry
 #' @param saturationThreshold is the number of lobsters in a trap at which the probability of
 #' another lobster entering the trap is zero
-#' @param trapSaturation is a logical parameter
-#' @param lengthBased is a logical parameter
-#' @param lobLengthThreshold is a size threshold (Carapace Length in mm) beyond which there is no chance of catching more lobster
-#' @param sexBased is a logical parameter
+#' @param trapSaturation Logical. If TRUE, lobsters behavioral interaction is included during the simulation.
+#' @param lengthBased Logical. If TRUE, lobster size is taken into account
+#' @param lobLengthThreshold is a size threshold (Carapace Length in mm), if a lobster larger than this threshold caught there will be no more entry to the trap
+#' @param sexBased Logical. If TRUE, lobster sex is taken into account and user must provide a list containing sex distribution for the simulated population
 #' @return a list of new coordinates, number of catch and their sizes
 updateGrid    = function(Lobster, Trap, trapCatch, lobSize, lobSex, radiusOfInfluence,
                          currentZoI, dStep, howClose, q0, qmin, saturationThreshold, trapSaturation,
@@ -41,8 +41,6 @@ updateGrid    = function(Lobster, Trap, trapCatch, lobSize, lobSex, radiusOfInfl
         next()
       }
 
-      # Check with Adam about trap interaction, not always the closest trap catches the lobster, right?
-      # Why Trap[,c(1,2)] and not just Trap
       minTrap = distanceToClosestTrap(Lobster = c(xOld,yOld), Trap = Trap[,c(1,2)] )
 
       if( minTrap[1] > radiusOfInfluence){

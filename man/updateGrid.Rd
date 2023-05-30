@@ -2,8 +2,7 @@
 % Please edit documentation in R/updateGrid.R
 \name{updateGrid}
 \alias{updateGrid}
-\title{This function updates the coordinate of each lobster at each timestep,
-The distanceToTrap function calculates the distance to the closest trap}
+\title{This function updates the coordinate of each lobster at each timestep,}
 \usage{
 updateGrid(
   Lobster,
@@ -27,41 +26,40 @@ updateGrid(
 \arguments{
 \item{Lobster}{is the x & y coordinates of each lobster}
 
-\item{Trap}{is the x & y coordinates of trap(s)}
+\item{Trap}{is the x & y coordinates of trap}
 
-\item{trapCatch}{number of captured lobster}
+\item{trapCatch}{number of trapped lobster}
 
-\item{lobSize}{size of captured lobster}
+\item{lobSize}{Size of trapped lobster}
 
-\item{lobSex}{to-do-list: check with Vahab}
+\item{lobSex}{Sex of trapped lobster}
 
-\item{radiusOfInfluence}{is the initial radius of influence (I0 in the paper)}
+\item{radiusOfInfluence}{is the initial radius of influence}
 
 \item{currentZoI}{is the bait's area of influence at each timestep}
 
 \item{dStep}{is how much a lobster moves in each time step}
 
-\item{howClose}{sets the distance from the trap within which catch occurs}
+\item{howClose}{The area within which a lobster considered trapped}
 
-\item{q0}{is the initial probability of entry into an empty trap(i.e. 0.5)}
+\item{q0}{is the initial probability of entry into an empty trap}
 
-\item{qmin}{is the asymptotic minimum probability of entry (i.e. 0)}
+\item{qmin}{is the asymptotic minimum probability of entry}
 
 \item{saturationThreshold}{is the number of lobsters in a trap at which the probability of
-another lobster entering the trap drops to qmin}
+another lobster entering the trap is zero}
 
-\item{trapSaturation}{is a logical parameter}
+\item{trapSaturation}{Logical. If TRUE, lobsters behavioral interaction is included during the simulation.}
 
-\item{lengthBased}{is a logical parameter}
+\item{lengthBased}{Logical. If TRUE, lobster size is taken into account}
 
-\item{lobLengthThreshold}{is a length threshold (i.e. CL in centimeters) beyond which there is no chance of catching another lobster}
+\item{lobLengthThreshold}{is a size threshold (Carapace Length in mm), if a lobster larger than this threshold caught there will be no more entry to the trap}
 
-\item{sexBased}{is a logical parameter}
+\item{sexBased}{Logical. If TRUE, lobster sex is taken into account and user must provide a list containing sex distribution for the simulated population}
 }
 \value{
 a list of new coordinates, number of catch and their sizes
 }
 \description{
 This function updates the coordinate of each lobster at each timestep,
-The distanceToTrap function calculates the distance to the closest trap
 }

@@ -3,7 +3,7 @@
 \docType{data}
 \name{LobsterSizeFreqs}
 \alias{LobsterSizeFreqs}
-\title{Dataset of bins and freq}
+\title{Lobster size frequency data}
 \format{
 A data frame with 31 rows and 2 variables
 }
@@ -11,12 +11,12 @@ A data frame with 31 rows and 2 variables
 data(LobsterSizeFreqs)
 }
 \description{
-to-do-list: describe dataset here
+The dataset contains frequency of each size bin (from Carapace length of 50 mm to 200 mm)
 }
 \details{
 \itemize{
-\item bins (DESCRIPTION GOES HERE)
-\item freq (DESCRIPTION GOES HERE)
+\item bins (Size groups/bins)
+\item freq (Frequency)
 }
 }
 \keyword{datasets}

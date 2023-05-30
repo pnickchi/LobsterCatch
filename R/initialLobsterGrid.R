@@ -1,28 +1,21 @@
-#' This function simulates an arena (or grid) with lobsters in it based on the provided density, size and sex ratio.
+#' This function simulates an arena (or grid) with lobsters in it based on the provided density, size and sex distribution.
 #' @param nrowgrids is a numeric value which defines the number of rows of the arena.
 #' @param ncolgrids is a numeric value which defines the number of columns of the arena.
 #' @param unitarea is the unit area used for estimating density of lobsters.
 #' @param initlambda is the density of lobsters at the beginning of simulation.
 #' @param initD is the dispersion index of lobsters on seabed at the beginning of the simulation.
 #' @param lobsterSizeFile is a csv file that contains the frequency of lobsters class size.
-#' @param lobsterSexDist is a list that contains the sex ratio of lobsters.
+#' @param lobsterSexDist is a list that contains the sex ratio of lobsters. Possible values are M=male, F=female, MM=mature male, BF=berried female)
 #' @return Returns x and y coordinates of simulated lobsters at the beginning.
 #' @import utils
 initialLobsterGrid = function(nrowgrids, ncolgrids, unitarea, initlambda, initD, lobsterSizeFile, lobsterSexDist){
 
   ngrids <- nrowgrids * ncolgrids
 
-  stop.condition = FALSE # this is to take care of instances when no lobster is simulated(due to low density)
+  stop.condition = FALSE
 
   while(stop.condition == FALSE){
-    #temp <- rpoisD(n = unitarea,lambda = initlambda, D = initD)
-    #temp <- rep(temp,20)
-    #initialLobster  <- c(temp, rep(0, ngrids - unitarea) )
-    #initialLobster  <- sample(x = initialLobster)
-    #rate <- (initlambda * unitarea) / ngrids
-    #initialLobster  <- rpoisD(n = unitarea,lambda = rate, D = initD)
 
-    #initialLobster <- as.vector( replicate(n = ngrids/unitarea, rpoisD(n = unitarea,lambda = initlambda, D = initD)) )
     initialLobster <- rpoisD(n = ngrids/unitarea,lambda = initlambda, D = initD)
     initialLobster <- c(initialLobster, rep(0,ngrids - length(initialLobster)))
     initialLobster <- sample(x = initialLobster)

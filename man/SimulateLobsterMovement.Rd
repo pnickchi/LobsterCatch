@@ -2,72 +2,19 @@
 % Please edit documentation in R/SimulateLobsterMovement.R
 \name{SimulateLobsterMovement}
 \alias{SimulateLobsterMovement}
-\title{A function to run the simulation based on defined parameters}
+\title{Function to run the simulation based on defined parameters}
 \usage{
 SimulateLobsterMovement(p)
 }
 \arguments{
-\item{p}{is a list which contains all input variables}
+\item{p}{is a list of all input variables}
 }
 \value{
 Returns a list
 }
 \description{
-A function to run the simulation based on defined parameters
-}
-\examples{
-initlambda          <- 0.1
-howClose            <- 0.5
-shrinkage           <- 0.993
-dStep               <- 5
-nrowgrids           <- 10
-ncolgrids           <- 10
-unitarea            <- 10
-initD               <- 1
-currentZoI           <- 15
-radiusOfInfluence   <- 15
-saturationThreshold <- 5
-Trap                <- data.frame(x = c(5), y = c(5))
-ntraps              <- 1
-lobLengthThreshold   <- 115
-q0                   <- 0.5
-realizations         <- 50
-tSteps               <- 50
-sexBased             <- TRUE
-lengthBased          <- FALSE
-trapSaturation       <- TRUE
-qmin                 <- 0
-lobsterSizeFile      <- ''
-lobsterSexDist       <- list(labels = c('M','F','MM','BF'),
-prob1 = c(0.55,0.35,0.05,0.05),
-prob2 = c(0.5,0.50,0,0),
-lobsterMatThreshold = 100)
-
-param <- list( nrowgrids=nrowgrids,
-              ncolgrids=ncolgrids,
-              unitarea=unitarea,
-              initlambda=initlambda,
-              initD=initD,
-              shrinkage=shrinkage,
-              currentZoI=currentZoI,
-              radiusOfInfluence=radiusOfInfluence,
-              Trap=Trap,
-              ntraps=ntraps,
-              saturationThreshold=saturationThreshold,
-              howClose=howClose,
-              dStep=dStep,
-              lengthBased=lengthBased,
-              lobsterSizeFile=lobsterSizeFile,
-              lobLengthThreshold=lobLengthThreshold,
-              trapSaturation=trapSaturation,
-              q0=q0,
-              qmin=qmin,
-              realizations=realizations,
-              tSteps=tSteps,
-              sexBased=sexBased,
-              lobsterSexDist=lobsterSexDist)
-sim <- SimulateLobsterMovement(p = param)
+Function to run the simulation based on defined parameters
 }
 \seealso{
-to-do-list
+Examples of the input parameters can be found here: https://github.com/vpourfaraj/lobsterCatch/tree/main/R
 }
