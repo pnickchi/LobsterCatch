@@ -1,7 +1,7 @@
 #' Function to run the simulation based on defined parameters
 #' @param p is a list of all input variables
 #' @return Returns a list
-#' @seealso Examples of the input parameters can be found here: https://github.com/vpourfaraj/lobsterCatch/tree/main/R
+#' @seealso Examples of the input parameters can be found here: https://github.com/pnickchi/lobstercatch/blob/main/Examplecode.R
 #' @export
 SimulateLobsterMovement = function(p){
 
