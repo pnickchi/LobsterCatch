@@ -2,7 +2,7 @@
 #' @param loc1 is the location of lobster at the start of each time step
 #' @param loc2 is the location of lobster at the end of each time step
 #' @param Trap is the location of trap
-#' @param howClose sets an area around the location of trap within which catch occurs
+#' @param howClose The area within which a lobster considered trapped
 #' @return Returns a vector that contain lobster path and whether its trapped
 trapInPath = function(loc1, loc2, Trap, howClose){
   x = seq(loc1[1],loc2[1],length.out = 10)

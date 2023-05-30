@@ -7,11 +7,11 @@
 #' @param radiusOfInfluence is the initial radius of influence
 #' @param dStep is how much a lobster moves in each time step
 #' @param currentZoI is the bait's area of influence at each timestep
-#' @param howClose sets the distance from the trap within which catch occurs
+#' @param howClose The area within which a lobster considered trapped
 #' @param q0 is the initial probability of entry into an empty trap
 #' @param qmin is the asymptotic minimum probability of entry
 #' @param saturationThreshold is the number of lobsters in a trap at which the probability of
-#' another lobster entering the trap drops to zero
+#' another lobster entering the trap is zero
 #' @param trapSaturation is a logical parameter
 #' @param lengthBased is a logical parameter
 #' @param lobLengthThreshold is a size threshold (Carapace Length in mm) beyond which there is no chance of catching more lobster

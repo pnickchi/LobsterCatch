@@ -1,12 +1,11 @@
-#' This function models movement of lobsters toward the trap. Both Directional and random moves are included.
-#' The distance of lobsters to trap determines the magnitude of those moves. The closer a lobster gets to the trap
-#' the smaller the random component of movement.
+#' This function models movement of lobsters toward the trap.The distance of lobsters to trap determines the magnitude of those moves.
+#' As lobster gets closer to the trap, the magnitude of its directional move becomes larger and the random move becomes smaller.
 #' @param Lobster location of lobster in the grid in x and y coordinates.
 #' @param dStep Distance that each lobster moves during one time step.
 #' @param minDistoTrap Distance from the trap.
 #' @param Trap location of trap in the arena.
-#' @param radiusOfInfluence Baited trap's radius of influence.
-#' @param currentZoI   Radius of influence thought timesteps considering bait shrinkage.
+#' @param radiusOfInfluence  Radius of influence for the baited trap.
+#' @param currentZoI   Radius of influence in each time step given the bait shrinkage.
 #' @return Returns the new coordinates of each lobster in the arena after each directional move.
 #'
 directionalMove <- function(Lobster, dStep, minDistoTrap, Trap, radiusOfInfluence, currentZoI){
