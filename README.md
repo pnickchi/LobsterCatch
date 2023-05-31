@@ -1,2 +1,2 @@
-# lobsterCatch
-The second version of lobsterCatch package
+# LobsterCatch
+The second version of LobsterCatch package
