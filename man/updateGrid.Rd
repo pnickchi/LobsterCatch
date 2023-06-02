@@ -26,7 +26,7 @@ updateGrid(
 \arguments{
 \item{Lobster}{is the x & y coordinates of each lobster}
 
-\item{Trap}{is the x & y coordinates of trap}
+\item{Trap}{is the x & y coordinates of the trap}
 
 \item{trapCatch}{number of trapped lobster}
 
