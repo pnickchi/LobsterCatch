@@ -4,7 +4,7 @@
 #' @param unitarea is the unit area used for estimating density of lobsters.
 #' @param initlambda is the density of lobsters at the beginning of simulation.
 #' @param initD is the dispersion index of lobsters on seabed at the beginning of the simulation.
-#' @param lobsterSizeFile is a csv file that contains the frequency of lobsters class size.
+#' @param lobsterSizeFile is a csv file that contains the frequency of lobsters size clases.
 #' @param lobsterSexDist is a list that contains the sex ratio of lobsters. Possible values are M=male, F=female, MM=mature male, BF=berried female)
 #' @return Returns x and y coordinates of simulated lobsters at the beginning.
 #' @import utils

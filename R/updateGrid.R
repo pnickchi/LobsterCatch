@@ -1,6 +1,6 @@
 #' This function updates the coordinate of each lobster at each timestep,
 #' @param Lobster is the x & y coordinates of each lobster
-#' @param Trap is the x & y coordinates of trap
+#' @param Trap is the x & y coordinates of the trap
 #' @param trapCatch number of trapped lobster
 #' @param lobSize Size of trapped lobster
 #' @param lobSex Sex of trapped lobster
