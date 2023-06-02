@@ -2,10 +2,10 @@ Package: LobsterCatch
 Title: The package models the capture processes in trap fisheries for American lobster
 Version: 0.1.0
 Authors@R: c(
-    person("Pourfaraj", "vahab", , "Vahab.Pourfaraj@dfo-mpo.gc.ca", role = c("aut","cre")),
+    person("Pourfaraj", "vahab", , "Vahab.Pourfaraj@dfo-mpo.gc.ca", role = c("aut")),
     person("Cook", "Adam", , "Adam.Cook@dfo-mpo.gc.ca", role = c("aut")),
     person("Jamie", "Tam", , "Jamie.Tam@dfo-mpo.gc.ca", role = "ctb"),
-    person("Nickchi", "Payman", , "payman.nickchi@gmail.com", role = c("aut"))
+    person("Nickchi", "Payman", , "payman.nickchi@gmail.com", role = c("aut","cre"))
   )
 Description: Functions to simulate lobster catch process in a trap fishery. Factors such as lobster denisty on ocean floor, thier movement, trap saturation, bait shrinkage rate can be modeled using the package.
 License: GPL (>= 3)
