@@ -1,5 +1,5 @@
 Package: LobsterCatch
-Title: The package models the capture processes in trap fisheries for American lobster
+Title: The Package Models the Capture Processes in Trap Fisheries for American Lobster
 Version: 0.1.0
 Authors@R: c(
     person("Pourfaraj", "vahab", , "Vahab.Pourfaraj@dfo-mpo.gc.ca", role = c("aut")),
@@ -7,13 +7,14 @@ Authors@R: c(
     person("Jamie", "Tam", , "Jamie.Tam@dfo-mpo.gc.ca", role = "ctb"),
     person("Nickchi", "Payman", , "payman.nickchi@gmail.com", role = c("aut","cre"))
   )
-Description: Functions to simulate lobster catch process in a trap fishery. Factors such as lobster denisty on ocean floor, thier movement, trap saturation, bait shrinkage rate can be modeled using the package.
+Description: Functions to simulate lobster catch process in a trap fishery. Factors such as lobster density on ocean floor, their movement, trap saturation, bait shrinkage rate can be modeled using the package.
 License: GPL (>= 3)
 Depends: 
     R (>= 2.10)
 Imports: 
     stats,
-    utils,
+    utils
+Suggests:
     bio.lobster
 Encoding: UTF-8
 LazyData: true
