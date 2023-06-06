@@ -6,6 +6,11 @@
 #' @export
 GetSimOutput = function(x,mls=82.5){
 
+
+  if(requireNamespace('bio.lobster', quietly = TRUE)){
+    stop('Package bio.lobster is not installed. Please install from Git Repo https://github.com/LobsterScience/bio.lobster via devtools::install_github() function')
+  }
+
   time.to.max <- list()
   max.catch   <- list()
   legwts      <- list()
