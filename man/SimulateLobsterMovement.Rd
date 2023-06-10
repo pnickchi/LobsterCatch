@@ -17,20 +17,20 @@ Function to run the simulation based on defined parameters
 }
 \examples{
 p = list()
-p$nrowgrids = 100
-p$ncolgrids = 100
+p$nrowgrids = 10
+p$ncolgrids = 10
 p$ngrids = p$nrowgrids * p$ncolgrids
-p$unitarea = 5
+p$unitarea = 1
 p$initlambda = 0.5
 p$dStep = 1
 p$howClose = 1
-p$initD = 2
+p$initD = 1
 p$shrinkage = 0.993
 p$currentZoI = 15
 p$radiusOfInfluence = 15
 p$q0 = 0.5
 p$qmin = 0
-p$Trap = data.frame( x = c(50), y = c(50) )
+p$Trap = data.frame( x = c(5), y = c(5) )
 p$ntraps = nrow(p$Trap)
 p$saturationThreshold = 5
 p$lengthBased = FALSE
@@ -42,9 +42,9 @@ p$sexBased = FALSE
 p$lobsterSexDist = list(labels = c('M','F','MM','BF'),
                         prob1 = c(0.55,0.35,0.05,0.05),
                         prob2 = c(0.5,0.50,0,0),
-                       lobsterMatThreshold = 100)
+                        lobsterMatThreshold = 100)
 p$realizations = 2
-p$tSteps = 5
+p$tSteps = 2
 Simrun = SimulateLobsterMovement(p)
 }
 \seealso{
