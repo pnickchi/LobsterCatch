@@ -1,7 +1,38 @@
 #' Function to run the simulation based on defined parameters
 #' @param p is a list of all input variables
 #' @return Returns a list
-#' @seealso Examples of the input parameters can be found here: https://github.com/pnickchi/lobstercatch/blob/main/Examplecode.R
+#' @seealso Examples of the input parameters and more details can be found here: https://github.com/pnickchi/lobstercatch/blob/main/Examplecode.R
+#' @examples
+#' p = list()
+#' p$nrowgrids = 100
+#' p$ncolgrids = 100
+#' p$ngrids = p$nrowgrids * p$ncolgrids
+#' p$unitarea = 5
+#' p$initlambda = 0.5
+#' p$dStep = 1
+#' p$howClose = 1
+#' p$initD = 2
+#' p$shrinkage = 0.993
+#' p$currentZoI = 15
+#' p$radiusOfInfluence = 15
+#' p$q0 = 0.5
+#' p$qmin = 0
+#' p$Trap = data.frame( x = c(50), y = c(50) )
+#' p$ntraps = nrow(p$Trap)
+#' p$saturationThreshold = 5
+#' p$lengthBased = FALSE
+#' p$lobsterSizeFile =
+#' 'https://raw.githubusercontent.com/vpourfaraj/lobsterCatch/main/inst/extdata/LobsterSizeFreqs.csv'
+#' p$lobLengthThreshold = 115
+#' p$trapSaturation = FALSE
+#' p$sexBased = FALSE
+#' p$lobsterSexDist = list(labels = c('M','F','MM','BF'),
+#'                         prob1 = c(0.55,0.35,0.05,0.05),
+#'                         prob2 = c(0.5,0.50,0,0),
+#'                        lobsterMatThreshold = 100)
+#' p$realizations = 2
+#' p$tSteps = 5
+#' Simrun = SimulateLobsterMovement(p)
 #' @export
 SimulateLobsterMovement = function(p){
 

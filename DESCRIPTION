@@ -14,9 +14,6 @@ Depends:
 Imports: 
     stats,
     utils
-Suggests:
-    bio.lobster
-Additional_repositories: https://github.com/LobsterScience/bio.lobster
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)

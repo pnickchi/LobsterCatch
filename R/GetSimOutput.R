@@ -6,11 +6,6 @@
 #' @export
 GetSimOutput = function(x,mls=82.5){
 
-
-  if(requireNamespace('bio.lobster', quietly = TRUE)){
-    stop('Package bio.lobster is not installed. Please install from Git Repo https://github.com/LobsterScience/bio.lobster via devtools::install_github() function')
-  }
-
   time.to.max <- list()
   max.catch   <- list()
   legwts      <- list()
@@ -28,8 +23,8 @@ GetSimOutput = function(x,mls=82.5){
                 l = s[k]
                 l = na.omit(as.numeric(unlist(strsplit(l[[1]],"-CL"))))
                 n = which(l>mls)
-                wtpertrap = c(wtpertrap,sum(bio.lobster::lobLW(l)))
-                legwtpertrap = c(legwtpertrap,sum(bio.lobster::lobLW(l[n])))
+                wtpertrap = c(wtpertrap,sum(lobLW(l)))
+                legwtpertrap = c(legwtpertrap,sum(lobLW(l[n])))
               }
         legwts[[i]] = legwtpertrap
         totwts[[i]] = wtpertrap
