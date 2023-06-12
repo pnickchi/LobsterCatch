@@ -1,5 +1,4 @@
-#
-# This is clone of function lobLW from bio.lobster package
+# This is a clone of function lobLW from bio.lobster package
 #
 lobLW = function (CL, fsrs.old = F, sex = 2, fsrs = F){
 
