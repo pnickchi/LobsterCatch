@@ -25,7 +25,7 @@ initialLobsterGrid(
 
 \item{initD}{is the dispersion index of lobsters on seabed at the beginning of the simulation.}
 
-\item{lobsterSizeFile}{is a csv file that contains the frequency of lobsters size clases.}
+\item{lobsterSizeFile}{is a csv file that contains the frequency of lobsters size class.}
 
 \item{lobsterSexDist}{is a list that contains the sex ratio of lobsters. Possible values are M=male, F=female, MM=mature male, BF=berried female)}
 }

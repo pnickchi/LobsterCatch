@@ -63,7 +63,7 @@ SimulateLobsterMovement = function(p){
   with(p, {
 
   if( (p$lengthBased == TRUE) & (p$lobsterSizeFile == '') ){
-      print('Upload a csv file for lobster size distribution.')
+      message('Upload a csv file for lobster size distribution.')
       lobsterSizeFile   <- file.choose()
       p$lobsterSizeFile <- lobsterSizeFile
   }
