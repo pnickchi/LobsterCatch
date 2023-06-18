@@ -7,7 +7,7 @@ Authors@R: c(
     person("Jamie", "Tam", , "Jamie.Tam@dfo-mpo.gc.ca", role = "ctb"),
     person("Nickchi", "Payman", , "payman.nickchi@gmail.com", role = c("aut","cre"))
   )
-Description: Simulate lobster catch process in a trap fishery. Factors such as lobster density on ocean floor, their movement, trap saturation and bait shrinkage rate can be modeled. Details of the methods for modeling those procceses can be found in: Addison and Bell (1997) <doi:10.1071/MF97169>.
+Description: Simulate lobster catch process in a trap fishery. Factors such as lobster density on ocean floor, their movement, trap saturation and bait shrinkage rate can be modeled. Details of the methods for modeling those processes can be found in: Addison and Bell (1997) <doi:10.1071/MF97169>.
 License: GPL (>= 3)
 Depends: 
     R (>= 2.10)
